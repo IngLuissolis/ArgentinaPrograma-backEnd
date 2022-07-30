@@ -31,6 +31,8 @@ public class ProyectosServiceImpl implements ProyectosService{
         proyecto.setNombreProyecto(detallesProyecto.getNombreProyecto());
         proyecto.setUrl(detallesProyecto.getUrl());
         proyecto.setFechaProyecto(detallesProyecto.getFechaProyecto());
+        proyecto.setProyectoDescripcion0(detallesProyecto.getProyectoDescripcion0());
+        proyecto.setProyectoDescripcion1(detallesProyecto.getProyectoDescripcion1());
         proyecto.setProyectoLogo(detallesProyecto.getProyectoLogo());
         
         return ProyectosRepo.save(proyecto);

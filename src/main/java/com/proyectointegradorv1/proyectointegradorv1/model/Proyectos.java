@@ -33,6 +33,9 @@ public class Proyectos implements Serializable{
     @Column(name="proyectoDescripcion0", nullable=false)
     private String proyectoDescripcion0;
     
+    @Column(name="proyectoDescripcion1", nullable=false)
+    private String proyectoDescripcion1;
+    
     @Column(name="url")
     private String url;
     
@@ -43,12 +46,14 @@ public class Proyectos implements Serializable{
     }
     
     public Proyectos(Long id, String nombreProyecto, String url, 
-            LocalDate fechaProyecto, String proyectoLogo, String proyectoDescripcion0){
+            LocalDate fechaProyecto, String proyectoLogo, String proyectoDescripcion0,
+            String proyectoDescripcion1){
         this.id = id;
         this.nombreProyecto = nombreProyecto;
         this.url = url;
         this.fechaProyecto = fechaProyecto;
         this.proyectoLogo = proyectoLogo;
         this.proyectoDescripcion0 = proyectoDescripcion0;
+        this.proyectoDescripcion1 = proyectoDescripcion1;
     }
 }
