@@ -33,7 +33,7 @@ public class Proyectos implements Serializable{
     @Column(name="proyectoDescripcion0", nullable=false)
     private String proyectoDescripcion0;
     
-    @Column(name="proyectoDescripcion1", nullable=false)
+    @Column(name="proyectoDescripcion1")
     private String proyectoDescripcion1;
     
     @Column(name="url")
