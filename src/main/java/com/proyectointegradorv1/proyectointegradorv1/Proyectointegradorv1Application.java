@@ -43,7 +43,7 @@ public class Proyectointegradorv1Application {
             @Override
             public void addCorsMappings(CorsRegistry registry){
                 registry.addMapping("/**")
-                        .allowedOrigins("https://proyectoargentinaprogram-5318e.firebaseapp.com", "https://proyectoargentinaprogram-5318e.web.app")
+                        .allowedOrigins("https://portfoliocvonline.firebaseapp.com", "https://portfoliocvonline.web.app/")
 //                .allowedOrigins("http://localhost:4200")https://proyectoargentinaprogram-5318e.firebaseapp.com/
 //                .allowedOrigins("http://localhost:4200", "http://localhost:8080")
                         .allowedMethods("GET", "POST", "PUT", "DELETE")
