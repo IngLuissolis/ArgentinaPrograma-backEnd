@@ -6,6 +6,7 @@ package com.proyectointegradorv1.proyectointegradorv1.service;
 
 import com.proyectointegradorv1.proyectointegradorv1.model.Experiencia;
 import java.util.List;
+import org.springframework.web.multipart.MultipartFile;
 
 
 public interface ExperienciaService {

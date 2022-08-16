@@ -6,8 +6,12 @@ package com.proyectointegradorv1.proyectointegradorv1.controller;
 
 import com.proyectointegradorv1.proyectointegradorv1.model.Empleado;
 import com.proyectointegradorv1.proyectointegradorv1.service.EmpleadoServiceImpl;
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,7 +21,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.server.ResponseStatusException;
 
 
 //API Rest
@@ -51,7 +59,8 @@ public class EmpleadoController {
     
     //metodo editar empleado por id
     @PutMapping("/empleados/{id}")
-    public ResponseEntity<Empleado> actualizarEmpleadoPorId(@PathVariable Long id, @RequestBody Empleado detallesEmpleado){
+    public ResponseEntity<Empleado> actualizarEmpleadoPorId(
+            @PathVariable Long id, @RequestBody Empleado detallesEmpleado){
         Empleado empleadoActualizado = EmpleadoService.actualizarEmpleadoPorId(id, detallesEmpleado);
         return ResponseEntity.ok(empleadoActualizado);
     }

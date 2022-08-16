@@ -24,18 +24,6 @@ public class Proyectointegradorv1Application {
     public ModelMapper modelMapper(){
         return new ModelMapper();
     }
-/*
-  @Bean
-  CorsConfigurationSource corsConfigurationSource() 
-  {
-    CorsConfiguration configuration = new CorsConfiguration();
-    configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200", "http://localhost:8080"));
-    configuration.setAllowedMethods(Arrays.asList("GET","POST"));
-    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-    source.registerCorsConfiguration("/**", configuration);
-    return source;
-  }    
-*/ 
 
     @Bean
     public WebMvcConfigurer corsConfigurer() {
@@ -43,14 +31,11 @@ public class Proyectointegradorv1Application {
             @Override
             public void addCorsMappings(CorsRegistry registry){
                 registry.addMapping("/**")
-                        .allowedOrigins("https://portfoliocvonline.firebaseapp.com", "https://portfoliocvonline.web.app/")
-//                .allowedOrigins("http://localhost:4200")https://proyectoargentinaprogram-5318e.firebaseapp.com/
-//                .allowedOrigins("http://localhost:4200", "http://localhost:8080")
+//                        .allowedOrigins("https://portfoliocvonline.firebaseapp.com", "https://portfoliocvonline.web.app/")
+                        .allowedOrigins("http://localhost:4200", "http://localhost:8080")
                         .allowedMethods("GET", "POST", "PUT", "DELETE")
-//                .maxAge(3600L)
                         .allowedHeaders("*")
-//
-                .allowCredentials(true);
+                        .allowCredentials(true);
             }
         };
     }

@@ -6,8 +6,11 @@ package com.proyectointegradorv1.proyectointegradorv1.controller;
 
 import com.proyectointegradorv1.proyectointegradorv1.model.Skills;
 import com.proyectointegradorv1.proyectointegradorv1.service.SkillsServiceImpl;
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +19,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.server.ResponseStatusException;
 
 //API Rest
 @RestController
@@ -35,7 +41,25 @@ public class SkillsController {
     
     //metodo guardar skill
     @PostMapping("/empleados/skills")
-    public Skills guardarSkills(@RequestBody Skills skill){
+    public Skills guardarSkills(@RequestPart(value = "skillLogo") MultipartFile file,
+            @RequestPart ("nombreSkill") String nombreSkill,
+            @RequestPart ("valorSkill") String valorSkillStr)
+            throws IOException, ParseException{
+        
+        Skills skill = new Skills();
+        
+        if (file.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Upload a non-empty file");
+        } else {
+            //conversion variable tipo string a number ya que FormData no acepta variable tipo number
+            Long valorSkill = Long.parseLong(valorSkillStr);
+            
+            //guardar skill editada en base de datos
+            skill.setNombreSkill(nombreSkill);
+            skill.setValorSkill(valorSkill);
+            skill.setSkillLogo(file.getBytes());
+        }
+        
         return SkillsService.guardarSkills(skill);
     }
     
@@ -48,7 +72,27 @@ public class SkillsController {
     
     //metodo editar skill por id
     @PutMapping("/empleados/skills/{id}")
-    public ResponseEntity<Skills> actualizarSkillsPorId(@PathVariable Long id, @RequestBody Skills detallesSkill){
+    public ResponseEntity<Skills> actualizarSkillsPorId(@PathVariable Long id,
+            @RequestPart(value = "skillLogo") MultipartFile file,
+            @RequestPart ("nombreSkill") String nombreSkill,
+            @RequestPart ("valorSkill") String valorSkillStr)
+            throws IOException, ParseException{
+        
+        Skills detallesSkill = new Skills();
+        
+        if (file.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Upload a non-empty file");
+        } else {
+            
+            //conversion variable tipo string a number ya que FormData no acepta variable tipo number
+            Long valorSkill = Long.parseLong(valorSkillStr);
+            
+            //guardar skill editada en base de datos
+            detallesSkill.setNombreSkill(nombreSkill);
+            detallesSkill.setValorSkill(valorSkill);
+            detallesSkill.setSkillLogo(file.getBytes());
+        }
+               
         Skills skillActualizada = SkillsService.actualizarSkillsPorId(id, detallesSkill);
         return ResponseEntity.ok(skillActualizada);
     }

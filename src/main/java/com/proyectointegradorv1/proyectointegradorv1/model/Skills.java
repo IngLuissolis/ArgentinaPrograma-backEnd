@@ -30,12 +30,12 @@ public class Skills implements Serializable{
     private Long valorSkill;
     
     @Column(name="skillLogo")
-    private String skillLogo;
+    private byte[] skillLogo;
     
     public Skills(){
     }
     
-    public Skills(Long id, String nombreSkill, Long valorSkill, String skillLogo){
+    public Skills(Long id, String nombreSkill, Long valorSkill, byte[] skillLogo){
         this.id = id;
         this.nombreSkill = nombreSkill;
         this.valorSkill = valorSkill;

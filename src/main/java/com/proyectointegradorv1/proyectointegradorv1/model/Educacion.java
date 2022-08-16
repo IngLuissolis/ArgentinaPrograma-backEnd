@@ -37,7 +37,7 @@ public class Educacion implements Serializable{
     @Column(name="fechaIngresoCurso", nullable=false)
     private LocalDate fechaIngresoCurso;
     
-    @Column(name="fechaEgresoCurso", nullable=false)
+    @Column(name="fechaEgresoCurso")
     private LocalDate fechaEgresoCurso;
     
     @Column(name="educacionDescripcion0")
@@ -50,14 +50,14 @@ public class Educacion implements Serializable{
     private String educacionDescripcion2;
     
      @Column(name="educacionLogo")
-    private String educacionLogo;
+    private byte[] educacionLogo;
     
     public Educacion (){
     }
     
     public Educacion (Long id, String institucion, String nombreCurso, LocalDate fechaIngresoCurso,
             LocalDate fechaEgresoCurso, String educacionDescripcion0, String educacionDescripcion1,
-            String educacionDescripcion2, String educacionLogo){
+            String educacionDescripcion2, byte[] educacionLogo){
         this.id = id;
         this.institucion = institucion;
         this.nombreCurso = nombreCurso;

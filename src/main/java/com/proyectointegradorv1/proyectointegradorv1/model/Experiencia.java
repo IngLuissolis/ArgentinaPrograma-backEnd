@@ -24,19 +24,19 @@ public class Experiencia implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Column(name="empresa", nullable=false)
+    @Column(name="empresa")
     private String empresa;
     
-    @Column(name="fechaIngreso", nullable=false)
+    @Column(name="fechaIngreso")
     private LocalDate fechaIngreso;
     
     @Column(name="fechaEgreso")
     private LocalDate fechaEgreso;
     
-    @Column(name="Cargo", nullable=false)
+    @Column(name="Cargo")
     private String cargo;
     
-    @Column(name="descripcion0", nullable=false)
+    @Column(name="descripcion0")
     private String descripcion0;
     
     @Column(name="descripcion1")
@@ -46,14 +46,15 @@ public class Experiencia implements Serializable{
     private String descripcion2;
     
     @Column(name="logo")
-    private String logo;
+    private byte[] logo;
 
     public Experiencia() {
+        super();
     }
 
     public Experiencia(Long id, String empresa, LocalDate fechaIngreso, 
             LocalDate fechaEgreso,String cargo, String descripcion0, 
-            String descripcion1, String descripcion2, String logo) {
+            String descripcion1, String descripcion2, byte[] logo) {
         this.id = id;
         this.empresa = empresa;
         this.fechaIngreso = fechaIngreso;
@@ -64,7 +65,5 @@ public class Experiencia implements Serializable{
         this.descripcion2= descripcion2;
         this.logo = logo;
     }
-    
-    
-    
+     
 }

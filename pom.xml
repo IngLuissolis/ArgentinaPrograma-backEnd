@@ -14,6 +14,8 @@
 	<name>proyectointegradorv1</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
+                <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>11</java.version>
 	</properties>
 	<dependencies>
@@ -48,6 +50,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+                <dependency>
+                    <groupId>commons-fileupload</groupId>
+                    <artifactId>commons-fileupload</artifactId>
+                    <version>1.3.3</version>
+                </dependency>
 	 <dependency>
 	  <groupId>org.springframework.data</groupId>
 	  <artifactId>spring-data-jpa</artifactId>
