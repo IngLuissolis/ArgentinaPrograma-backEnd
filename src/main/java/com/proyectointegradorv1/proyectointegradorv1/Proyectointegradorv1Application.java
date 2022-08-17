@@ -31,8 +31,9 @@ public class Proyectointegradorv1Application {
             @Override
             public void addCorsMappings(CorsRegistry registry){
                 registry.addMapping("/**")
+                        .allowedOrigins("https://portfolio-solis-cvonline-v2.firebaseapp.com/", "https://portfolio-solis-cvonline-v2.web.app/")
 //                        .allowedOrigins("https://portfoliocvonline.firebaseapp.com", "https://portfoliocvonline.web.app/")
-                        .allowedOrigins("http://localhost:4200", "http://localhost:8080")
+//                        .allowedOrigins("http://localhost:4200", "http://localhost:8080")
                         .allowedMethods("GET", "POST", "PUT", "DELETE")
                         .allowedHeaders("*")
                         .allowCredentials(true);
