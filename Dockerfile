@@ -6,7 +6,7 @@
 
 FROM amazoncorretto:11-alpine-jdk
 MAINTAINER LUIS_SOLIS //quien es el dueño
-COPY target/proyectointegradorv1-0.0.1-SNAPSHOT.jar LS-app.jar //va a copiar el empaquetado a github
-ENTRYPOINT ["java","-jar","/LS-app.jar"] //es la instruccion que se va a ejecutar primero
+COPY target/proyectointegradorv1-0.0.1-SNAPSHOT.jar LES-app.jar
+ENTRYPOINT ["java","-jar","/LES-app.jar"]
 
 #CMD ["/bin/sh"]
