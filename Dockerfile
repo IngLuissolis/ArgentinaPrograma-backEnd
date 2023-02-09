@@ -5,7 +5,7 @@
 #FROM alpine:latest
 
 FROM amazoncorretto:11-alpine-jdk
-MAINTAINER LUIS_SOLIS //quien es el dueño
+MAINTAINER LES
 COPY target/proyectointegradorv1-0.0.1-SNAPSHOT.jar LES-app.jar
 ENTRYPOINT ["java","-jar","/LES-app.jar"]
 
